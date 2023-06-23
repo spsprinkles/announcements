@@ -1,7 +1,7 @@
 import { Components, ContextInfo, Helper } from "gd-sprest-bs";
 import { infoSquare } from "gd-sprest-bs/build/icons/svgs/infoSquare";
 import { Datatable } from "./datatable";
-import { DataSource } from "./ds";
+import { DataSource, IListItem } from "./ds";
 import { Security } from "./security";
 import Strings from './strings';
 
@@ -19,6 +19,29 @@ export class Banner {
 
         // Render the banner
         this.render();
+    }
+
+    // Generates a link element
+    private generateLinkElement(item: IListItem) {
+        // Create the element
+        let elItem = document.createElement("div");
+        elItem.classList.add("announcement-item");
+        elItem.classList.add("p-3");
+        elItem.innerHTML = `<b>${item.Title}</b> ${item.Content}`;
+        item.BackgroundColor ? elItem.style.backgroundColor = item.BackgroundColor : null;
+        item.TextColor ? elItem.style.color = item.TextColor : null;
+
+        // See if there is a link associated w/ this item
+        if (item.LinkUrl && item.LinkUrl.Url) {
+            // Add a click event
+            elItem.addEventListener("click", () => {
+                // Display in a new tab
+                window.open(item.LinkUrl.Url, "_blank");
+            });
+        }
+
+        // Return the element
+        return elItem;
     }
 
     // Renders the banner
@@ -65,15 +88,10 @@ export class Banner {
 
         // Parse the items
         for (let i = 0; i < DataSource.ListItems.length; i++) {
-            let item = DataSource.ListItems[i];
+            // Generate the element for this item
+            let elItem = this.generateLinkElement(DataSource.ListItems[i]);
 
-            // Append the item
-            let elItem = document.createElement("div");
-            elItem.classList.add("announcement-item");
-            elItem.classList.add("p-3");
-            elItem.innerHTML = `<b>${item.Title}</b> ${item.Content}`;
-            item.BackgroundColor ? elItem.style.backgroundColor = item.BackgroundColor : null;
-            item.TextColor ? elItem.style.color = item.TextColor : null;
+            // Append the element
             elTicker.appendChild(elItem);
         }
     }
