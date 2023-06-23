@@ -179,7 +179,11 @@ export class Datatable {
                     },
                     {
                         name: "LinkUrl",
-                        title: "Link Url"
+                        title: "Link Url",
+                        onRenderCell: (el, col, item: IListItem) => {
+                            // Set the value
+                            el.innerHTML = item.LinkUrl ? item.LinkUrl.Url : "";
+                        }
                     },
                     {
                         className: "text-end",

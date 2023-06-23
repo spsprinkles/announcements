@@ -15,7 +15,9 @@ declare const Announcements: {
     el: HTMLElement;
     context?: ApplicationCustomizerContext;
     envType?: number;
+    isEdit?: boolean;
   }) => void;
+  updateBanner: (isEdit: boolean) => void;
   updateTheme: (currentTheme: Partial<ISemanticColors>) => void;
 };
 
@@ -36,6 +38,23 @@ export default class AnnouncementsApplicationCustomizer
     // Log
     Log.info(LOG_SOURCE, `Initializing the Announcements`);
 
+    // Render the banner
+    this.render();
+
+    return Promise.resolve();
+  }
+
+  protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
+    if (!currentTheme) {
+      return;
+    }
+
+    // Update the theme
+    Announcements.updateTheme(currentTheme.semanticColors);
+  }
+
+  // Renders the banner
+  private render(): void {
     // See if the banner has been created
     if (this._banner === null) {
       // Log
@@ -59,16 +78,5 @@ export default class AnnouncementsApplicationCustomizer
       // Log
       Log.info(LOG_SOURCE, `Banner already rendered`);
     }
-
-    return Promise.resolve();
-  }
-
-  protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
-    if (!currentTheme) {
-      return;
-    }
-
-    // Update the theme
-    Announcements.updateTheme(currentTheme.semanticColors);
   }
 }
