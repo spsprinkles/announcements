@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-announcements",
+    "id": "1c8d30b0-985c-4752-b528-b61a21740e29",
+    "version": "0.0.0.1",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": false,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Dade Register, Gunjan Datta",
+      "websiteUrl": "https://github.com/spsprinkles/announcements",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Displays active announcements at the top of a modern page."
+      },
+      "longDescription": {
+        "default": "Displays active announcements at the top of a modern page."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Application Extension - SPFx Announcements",
+        "description": "Deploys a custom action with ClientSideComponentId association",
+        "id": "bbf848a3-6629-495c-b599-889feb93e471",
+        "version": "1.0.0.0",
+        "assets": {
+          "elementManifests": [
+            "elements.xml",
+            "ClientSideInstance.xml"
+          ]
+        }
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "../../dist/announcements.sppkg"
+  }
+}

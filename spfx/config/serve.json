@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://dattaspo.sharepoint.com/sites/demo/announcements/SitePages/Home.aspx",
+      "customActions": {
+        "63837015-ae74-4155-a1dc-5dd7382748f3": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {}
+        }
+      }
+    },
+    "announcements": {
+      "pageUrl": "https://dattaspo.sharepoint.com/sites/demo/announcements/SitePages/Home.aspx",
+      "customActions": {
+        "63837015-ae74-4155-a1dc-5dd7382748f3": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {}
+        }
+      }
+    }
+  }
+}
