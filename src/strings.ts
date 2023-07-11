@@ -24,6 +24,6 @@ const Strings = {
     ProjectName: "Announcements",
     ProjectDescription: "Displays announcements at the top of a modern page.",
     SourceUrl: ContextInfo.webServerRelativeUrl,
-    Version: "0.1"
+    Version: "0.0.0.2"
 };
 export default Strings;

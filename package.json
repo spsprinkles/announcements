@@ -1,12 +1,13 @@
 {
   "name": "announcements",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "src/index.ts",
   "scripts": {
     "all": "npm run clean && npm run build && npm run prod && npm run spfx",
     "build": "webpack --mode development",
     "clean": "node ./clean.js",
+    "increment-version": "node ./incrementVersion.js",
     "prod": "webpack --mode production",
     "serve": "npm run build && cd spfx && gulp serve",
     "spfx": "cd spfx && npm run package"
