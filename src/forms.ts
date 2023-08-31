@@ -1,3 +1,4 @@
+import { CanvasForm } from "dattatable";
 import { DataSource, IListItem } from "./ds";
 
 /**
@@ -6,6 +7,11 @@ import { DataSource, IListItem } from "./ds";
 export class Forms {
     // Displays the edit form
     static edit(itemId: number, onUpdate: () => void) {
+        // Update the canvas properties
+        CanvasForm.clear();
+        CanvasForm.setAutoClose(false);
+
+        // Display the edit form
         DataSource.List.editForm({
             itemId,
             onSetFooter: (el) => {
@@ -28,10 +34,15 @@ export class Forms {
 
     // Displays the new form
     static new(onUpdate: () => void) {
+        // Update the canvas properties
+        CanvasForm.clear();
+        CanvasForm.setAutoClose(false);
+
+        // Display the new form
         DataSource.List.newForm({
             onSetHeader: (el) => {
                 let h5 = el.querySelector("h5") as HTMLElement;
-                if (h5) { h5.innerText = "New Icon Link"; }
+                if (h5) { h5.innerText = "New Announcement"; }
             },
             onUpdate: (item: IListItem) => {
                 // Refresh the data
@@ -45,6 +56,11 @@ export class Forms {
 
     // Displays the view form
     static view(item: IListItem) {
+        // Update the canvas properties
+        CanvasForm.clear();
+        CanvasForm.setAutoClose(false);
+
+        // Display the view form
         DataSource.List.viewForm({ itemId: item.Id });
     }
 }

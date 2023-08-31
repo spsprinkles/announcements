@@ -3,7 +3,7 @@
   "solution": {
     "name": "spfx-announcements",
     "id": "1c8d30b0-985c-4752-b528-b61a21740e29",
-    "version": "0.0.0.2",
+    "version": "0.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": false,
     "isDomainIsolated": false,
